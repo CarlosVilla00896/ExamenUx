@@ -7,26 +7,17 @@ import Axios from 'axios';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      ubication: '',
-      temp: '',
-      humedad: ''
-    }
+    this.state = {ubication: '',temp: '',humedad: ''};
+    this.updateState = this.updateState.bind(this);
+
 }
 
 // componentDidMount() {
-//   axios.get(`http://api.openweathermap.org/data/2.5/weather?q='{city}','{country}'&appid='{API_KEY}'&u
-//   nits=metric
-//   `)
-//     .then(res => {
-//       const persons = res.data;
-//       this.setState({ persons   });
-//     })
+//   
 // }
 
-
-  updateState(){
-    {}
+  updateState(ubica,tempe, hum){
+    this.setState({ubicaction: ubica, temp:tempe, humedad: hum});
   }
 
 
@@ -36,7 +27,7 @@ class App extends Component {
         <div className = "flex-container">
           <div className = "inside">
           <Form updateState = {this.updateState} />
-          <Weather ubicaction ={this.state.ubicaction} temp = {this.state.temp} humidity = {this.state.humedad}/>
+          <Weather ubication ={this.state.ubicaction} temp = {this.state.temp} humidity = {this.state.humedad}/>
           </div>
         </div>
       </div>
